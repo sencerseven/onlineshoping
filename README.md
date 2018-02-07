@@ -1,1 +1,1 @@
-# onlineshoping
+# Cehalet Yoluna Giren Adalet Yolunu Bırakır.
