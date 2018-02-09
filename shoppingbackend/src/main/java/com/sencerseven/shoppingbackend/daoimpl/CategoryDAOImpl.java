@@ -1,11 +1,16 @@
-package com.sencerseven.onlineshopping.daoimpl;
+package com.sencerseven.shoppingbackend.daoimpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sencerseven.onlineshopping.dao.CategoryDAO;
-import com.sencerseven.onlineshopping.dto.Category;
+import javax.xml.ws.RespectBinding;
 
+import org.springframework.stereotype.Repository;
+
+import com.sencerseven.shoppingbackend.dao.CategoryDAO;
+import com.sencerseven.shoppingbackend.dto.Category;
+
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO{
 
 	private static List<Category> categories = new ArrayList<>();
@@ -41,9 +46,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	@Override
 	public List<Category> list() {
-	
-		// TODO Auto-generated method stub
-		return null;
+		return categories;
 	}
 
 }

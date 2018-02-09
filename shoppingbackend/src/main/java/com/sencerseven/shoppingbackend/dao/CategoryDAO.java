@@ -1,8 +1,8 @@
-package com.sencerseven.onlineshopping.dao;
+package com.sencerseven.shoppingbackend.dao;
 
 import java.util.List;
 
-import com.sencerseven.onlineshopping.dto.Category;
+import com.sencerseven.shoppingbackend.dto.Category;
 
 public interface CategoryDAO {
 

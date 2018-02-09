@@ -1,4 +1,4 @@
-package com.sencerseven.onlineshopping.dto;
+package com.sencerseven.shoppingbackend.dto;
 
 public class Category {
 
@@ -39,6 +39,11 @@ public class Category {
 	}
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
+				+ ", active=" + active + "]";
 	}
 	
 	
