@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sencerseven.shoppingbackend.dao.CategoryDAO;
+import com.sencerseven.shoppingbackend.dto.Category;
 
 @Controller
 public class PageController {
@@ -39,6 +40,39 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Contact");
 		mv.addObject("userClickContact", true);
+		return mv;
+	}
+	
+	/*
+	 *Metods to load all the products and based on category 
+	 */
+	
+	@RequestMapping(value = {"/show/all/products"})
+	public ModelAndView showAllProducts() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "All Products");
+		System.out.println(categoryDAO.list());
+		mv.addObject("categories", categoryDAO.list());
+		
+		mv.addObject("userClickAllProducts", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = {"/show/category/{id}/products"})
+	public ModelAndView showCategoryProducts(@PathVariable("id")int id) {
+		ModelAndView mv = new ModelAndView("page");
+		
+		// CategoryDAO to fetch single category
+		
+		Category category = null;
+			
+		category = categoryDAO.get(id);
+		
+		mv.addObject("title", category.getName());
+		mv.addObject("categories", categoryDAO.list());
+		mv.addObject("category", category);
+		
+		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
 	
