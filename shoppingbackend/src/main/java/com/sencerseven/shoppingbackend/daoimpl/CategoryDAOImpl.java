@@ -3,8 +3,14 @@ package com.sencerseven.shoppingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.xml.ws.RespectBinding;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.context.spi.CurrentSessionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.sencerseven.shoppingbackend.dao.CategoryDAO;
@@ -15,6 +21,9 @@ public class CategoryDAOImpl implements CategoryDAO{
 
 	private static List<Category> categories = new ArrayList<>();
 	
+	@Autowired
+	@Qualifier(value="sessionFactory")
+	private SessionFactory sessionFactory;
 	
 	
 	static {
@@ -56,6 +65,20 @@ public class CategoryDAOImpl implements CategoryDAO{
 				return category;
 		}
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public boolean add(Category category) {
+		
+		try {
+			sessionFactory.getCurrentSession().persist(category);
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 }

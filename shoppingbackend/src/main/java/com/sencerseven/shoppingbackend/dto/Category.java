@@ -1,13 +1,43 @@
 package com.sencerseven.shoppingbackend.dto;
 
-public class Category {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	
+import org.dom4j.tree.AbstractEntity;
+
+@Entity
+@Table(name="CATEGORY")
+public class Category{
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+
 	private String name;
+	
 	private String description;
+	
+	@Column(name="IMAGE_URL")
 	private String imageURL;
+	
+	@Column(name="IS_ACTIVE")
 	private boolean active = true;
+	
+	public Category() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Category(int id, String name, String description, String imageURL, boolean active) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.imageURL = imageURL;
+		this.active = active;
+	}
 	
 	
 	public int getId() {
