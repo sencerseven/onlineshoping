@@ -26,9 +26,12 @@
 <link href="${css}/bootstrap-simplex-theme.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+
 <link href="${css}/myapp.css" rel="stylesheet">
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${pageContext.request.contextPath}';
 </script>
 </head>
 
@@ -62,6 +65,10 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<script src="${js}/dataTables.bootstrap4.js"></script>
 
 		<script src="${js}/myapp.js"></script>
 	</div>

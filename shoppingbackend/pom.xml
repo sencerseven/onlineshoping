@@ -14,6 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<springframework.version>5.0.3.RELEASE</springframework.version>
 	<hibernate.version>5.2.13.Final</hibernate.version>
+	<jackson.version>2.9.4</jackson.version>
   </properties>
 
 
@@ -48,7 +49,19 @@
 		    <version>2.2.0</version>
 		</dependency>
 			
-  
+		<!-- JACKSON -->
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		
+		 <dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${jackson.version}</version>
+		 </dependency>
   
 	    <dependency>
 		    <groupId>junit</groupId>
