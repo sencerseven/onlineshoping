@@ -26,6 +26,8 @@
 <link href="${css}/bootstrap-simplex-theme.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
+<link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <link href="${css}/myapp.css" rel="stylesheet">
