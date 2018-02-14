@@ -30,7 +30,7 @@ $(function(){
 	if($table.length){
 		var jsonUrl = '';
 		if(categoryId ==''){
-			json = window.contextRoot + '/json/data/all/products';
+			jsonUrl = window.contextRoot + '/json/data/all/products';
 		}else{
 			
 			jsonUrl = window.contextRoot + '/json/data/category/'+window.categoryId+'/products';
@@ -47,7 +47,7 @@ $(function(){
 				{
 					data:'code',
 					mRender: function(data,type,row){
-						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"/>';
+						return '<img src="'+window.contextRoot+'/resources/images/products/'+data+'.jpg" class="dataTablesImages"/>';
 					}
 				},
 				{
@@ -74,8 +74,8 @@ $(function(){
 					data: 'id',
 					mRender: function(data,type,row){
 						var str = '';
-						str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"> </span></a> &#160';
-						str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"> </span></a>';
+						str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="fas fa-eye"> </span></a> &#160';
+						str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
 						return str;
 					}
 				}

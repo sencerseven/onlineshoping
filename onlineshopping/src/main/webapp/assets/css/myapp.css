@@ -23,7 +23,7 @@ body{
 }
 
 .content{
-	margin-top:60px;
+	margin-top:85px;
  
 }
 
@@ -36,7 +36,11 @@ position: absolute;
   background-color: #efefef;
   text-align: center;
 }
-	
+
+.dataTablesImages{
+	width:100px;
+	height:100px;
+}
 	
 	
 	

@@ -26,9 +26,8 @@
 <link href="${css}/bootstrap-simplex-theme.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
-<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <link href="${css}/myapp.css" rel="stylesheet">
 <script>
@@ -60,6 +59,10 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<c:if test="${userClickSingleProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
@@ -71,6 +74,8 @@
 		<script src="${js}/jquery.dataTables.js"></script>
 		
 		<script src="${js}/dataTables.bootstrap4.js"></script>
+		
+		<script src="${js}/fontawesome-all.js"></script>
 
 		<script src="${js}/myapp.js"></script>
 	</div>
