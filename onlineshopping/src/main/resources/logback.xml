@@ -9,11 +9,11 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.sencerseven" level="INFO">
+	<logger name="com.sencerseven" level="DEBUG" additivity="false">
 		<appender-ref ref="consoleAppender" />
 	</logger>
 
-	<root>
+	<root level="INFO">
 		<appender-ref ref="consoleAppender" />
 	</root>
 
