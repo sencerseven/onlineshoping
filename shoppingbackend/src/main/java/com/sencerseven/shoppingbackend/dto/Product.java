@@ -35,6 +35,7 @@ public class Product {
 	private double unitPrice;
 	private int quantity;
 	@Column(name="is_active")
+	@JsonIgnore
 	private boolean active;
 	@Column(name="category_id")
 	@JsonIgnore
@@ -46,7 +47,6 @@ public class Product {
 	private int views;
 	
 	@Transient
-	@JsonIgnore
 	private MultipartFile file;
 	
 	public MultipartFile getFile() {
