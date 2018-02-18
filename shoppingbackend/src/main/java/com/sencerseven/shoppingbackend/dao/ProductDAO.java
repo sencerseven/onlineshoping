@@ -11,6 +11,7 @@ public interface ProductDAO {
 	public boolean add (Product product);
 	public boolean delete(Product product);
 	public boolean update(Product product);
+	public boolean saveOrUpdate(Product product);
 	
 	//business Methods
 	List<Product> listActiveProducts();

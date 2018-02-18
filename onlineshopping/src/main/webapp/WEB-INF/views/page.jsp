@@ -80,6 +80,8 @@
 		<script src="${js}/dataTables.bootstrap4.js"></script>
 		
 		<script src="${js}/fontawesome-all.js"></script>
+		
+		<script src="${js}/bootbox.min.js"></script>
 
 		<script src="${js}/myapp.js"></script>
 	</div>

@@ -115,5 +115,18 @@ public class ProductDAOImpl implements ProductDAO{
 		query.setMaxResults(count);
 		return query.getResultList();
 	}
+	@Override
+	public boolean saveOrUpdate(Product product) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.saveOrUpdate(product);	
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 
 }
