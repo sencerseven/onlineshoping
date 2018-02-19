@@ -44,6 +44,12 @@
 		    <artifactId>jstl</artifactId>
 		    <version>1.2</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.webflow</groupId>
+		    <artifactId>spring-webflow</artifactId>
+		    <version>2.4.7.RELEASE</version>
+		</dependency>
 				
 
 		<!-- JAVA EE API -->

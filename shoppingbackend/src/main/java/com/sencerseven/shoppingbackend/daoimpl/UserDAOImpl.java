@@ -1,5 +1,7 @@
 package com.sencerseven.shoppingbackend.daoimpl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
@@ -65,6 +67,36 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public Address getBillingAddress(User user) {
+		String selectQuery = "From Address where user = :user and billing = :billing";
+		
+		try {
+			Query<Address> query = sessionFactory.getCurrentSession().createQuery(selectQuery,Address.class);
+			query.setParameter("user", user);
+			query.setParameter("billing", true);
+			return query.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<Address> listShippingAddresses(User user) {
+		String selectQuery = "FROM Address where user = :user and shipping = :shipping";
+		try {
+			Query<Address> query = sessionFactory.getCurrentSession().createQuery(selectQuery,Address.class);
+			query.setParameter("user", user);
+			query.setParameter("shipping", true);
+			return query.getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

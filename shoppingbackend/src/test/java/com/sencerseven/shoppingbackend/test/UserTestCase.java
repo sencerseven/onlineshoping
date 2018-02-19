@@ -102,7 +102,7 @@ public class UserTestCase {
 			
 		}
 	}
-	*/
+	
 	
 	@Test
 	public void testUpdateCart() {
@@ -116,5 +116,71 @@ public class UserTestCase {
 		
 		assertEquals("Failed to update cart", true,userDAO.updateCart(cart));
 	}
+	*/
+	/*
+	@Test
+	public void testAddAddress() {
+		user = new User();
+		
+		user.setFirstName("hrithik");
+		user.setLastName("roshan");
+		user.setEmail("hr@gmail.com");
+		user.setContactNumber("123123");
+		user.setRole("USER");
+		user.setPassword("123456");
+		
+		assertEquals("Fialed to add user!",true, userDAO.addUser(user));
+		
+		address = new Address();
+		
+		address.setAddressLineOne("Kartal tepe mah");
+		address.setAdressLineTwo("terakki cad.");
+		address.setCity("istanbul");
+		address.setState("bakırköy");
+		address.setCountry("Turkey");
+		address.setPostalCode("34471");
+		address.setBilling(true);
+		
+		address.setUser(user);
+		assertEquals("Fialed to add address!",true, userDAO.addAdress(address));
+		
+		address = new Address();
+		address.setAddressLineOne("Kartal tepe mah");
+		address.setAdressLineTwo("terakki cad.");
+		address.setCity("istanbul");
+		address.setState("bakırköy");
+		address.setCountry("Turkey");
+		address.setPostalCode("34471");
+		address.setShipping(true);
+		
+		address.setUser(user);
+		assertEquals("Fialed to add address!",true, userDAO.addAdress(address));
+	}
+	*/
 	
+	/*@Test
+	public void testAddAdress() {
+		user = userDAO.getByEmail("hr@gmail.com");
+		
+		address = new Address();
+		address.setAddressLineOne("Kartal tepe mah");
+		address.setAdressLineTwo("terakki cad.");
+		address.setCity("istanbul");
+		address.setState("Trabzon");
+		address.setCountry("Turkey");
+		address.setPostalCode("34471");
+		address.setShipping(true);
+		
+		address.setUser(user);
+		assertEquals("Fialed to add address!",true, userDAO.addAdress(address));
+	}
+	*/
+	
+	@Test
+	public void testGetAddresses() {
+		user = userDAO.getByEmail("hr@gmail.com");
+		
+		assertEquals("Fialed to add address!",2, userDAO.listShippingAddresses(user).size());
+		
+	}
 }
