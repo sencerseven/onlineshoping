@@ -200,7 +200,6 @@ $(function(){
 					data: 'active',
 					bSortable:false,
 					mRender:function(data,type,row){
-						console.log(row);
 						var str = '';
 						str +=	'<label class="switch">';
 						if(data){
@@ -243,8 +242,7 @@ $(function(){
 						message: dMsg,
 						callback: function(confirmed) {
 							if(confirmed){
-								
-								console.log(value);
+							
 								
 								var activationUrl = window.contextRoot + '/manage/product/'+value+'/activation';
 								
@@ -271,7 +269,43 @@ $(function(){
 			
 		});
 	}
+	//-----------------
+	//validation code
+	//-------------
+	var $categoryForm = $('#categoryForm');
 	
+	if($categoryForm.length){
+		
+		$categoryForm.validate({
+			rules:{
+				name:{
+					required: true,
+					minlength: 2
+				},
+				description:{
+					required: true
+				}
+			},
+			messages:{
+				name:{
+					required: 'Please add the category name!',
+					minlength:'The category name should be less than 2 characters'
+				},
+				description:{
+					required:'Please add the category description'
+				}
+			},
+			errorElement:'em',
+			errorPlacement: function(error, element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+				console.log(error);
+			}
+		});
+		
+	}
+	
+	//------------------------
 	
 	
 	
