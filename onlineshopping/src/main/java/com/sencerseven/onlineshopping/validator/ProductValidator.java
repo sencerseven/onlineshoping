@@ -1,4 +1,4 @@
-package com.sencersen.onlineshopping.validator;
+package com.sencerseven.onlineshopping.validator;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

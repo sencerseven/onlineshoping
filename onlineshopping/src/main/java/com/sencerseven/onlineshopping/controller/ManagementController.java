@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sencersen.onlineshopping.validator.ProductValidator;
 import com.sencerseven.onlineshopping.util.FileUploadUtility;
+import com.sencerseven.onlineshopping.validator.ProductValidator;
 import com.sencerseven.shoppingbackend.dao.CategoryDAO;
 import com.sencerseven.shoppingbackend.dao.ProductDAO;
 import com.sencerseven.shoppingbackend.dto.Category;

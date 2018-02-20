@@ -1,5 +1,7 @@
  package com.sencerseven.shoppingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,10 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="address")
-public class Address {
+public class Address implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
@@ -29,18 +37,24 @@ public class Address {
 	}
 
 	@Column(name="address_line_one")
+	@NotBlank(message="Please enter Address Line One")
 	private String addressLineOne;
 	
 	@Column(name="address_line_two")
-	private String adressLineTwo;
+	@NotBlank(message="Please enter Address Line two")
+	private String addressLineTwo;
 	
+	@NotBlank(message="Please enter City")
 	private String city;
 	
+	@NotBlank(message="Please enter State")
 	private String state;
 	
+	@NotBlank(message="Please enter Country")
 	private String country;
 	
 	@Column(name="postal_code") 
+	@NotBlank(message="Please enter postal Code")
 	private String postalCode;
 	
 	@Column(name="is_shipping")
@@ -57,7 +71,7 @@ public class Address {
 	}
 
 	
-
+	
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}
@@ -66,12 +80,12 @@ public class Address {
 		this.addressLineOne = addressLineOne;
 	}
 
-	public String getAdressLineTwo() {
-		return adressLineTwo;
+	public String getAddressLineTwo() {
+		return addressLineTwo;
 	}
 
-	public void setAdressLineTwo(String adressLineTwo) {
-		this.adressLineTwo = adressLineTwo;
+	public void setAddressLineTwo(String adressLineTwo) {
+		this.addressLineTwo = adressLineTwo;
 	}
 
 	public String getCity() {
