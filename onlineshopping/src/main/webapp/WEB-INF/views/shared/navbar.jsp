@@ -27,6 +27,22 @@
             <li id="Login">
               <a class="nav-link" href="${contextRoot}/login">Login</a>
             </li>
+            
+            <li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">${userModel.fullName}<span class="caret"></span></a>
+            		
+            		<div class="dropdown-menu" aria-labelledby="download">
+	                <a class="dropdown-item" href="${contextRoot}/cart">
+	                	<span class="fas fa-shopping-cart"></span>
+	                0</a>
+	                
+	           
+	                <div class="dropdown-divider"></div>
+	               
+	               <a class="dropdown-item" href="${contextRoot}/logout">Logout</a>
+	               
+              </div>
+            </li>
           </ul>
           
         </div>

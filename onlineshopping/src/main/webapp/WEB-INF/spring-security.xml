@@ -14,26 +14,27 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	<http pattern="/resources/**" security="none" />
 	
 	<http>
+		<intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" username-parameter="username"  password-parameter="password"/>
+		<access-denied-handler error-page="/access-denied"/> 
 		<logout/>
 	</http>
 	
 	<authentication-manager>
-<authentication-provider>
-	<password-encoder ref="bcrypt"/>
-
+		<authentication-provider>
+	<password-encoder ref="passwordEncoder"/>
 	<jdbc-user-service data-source-ref="dataSource"
 		users-by-username-query="Select email,password,enabled from user_detail where email = ?"
 		authorities-by-username-query="select email, role from user_detail where email = ?"
 	
 	/>
-	
-	
-</authentication-provider>
-</authentication-manager>
+		</authentication-provider>
+	</authentication-manager>
 
-<beans:bean id="bcrypt" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" /> 
+<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" /> 
 
 </beans:beans>

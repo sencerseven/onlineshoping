@@ -73,13 +73,13 @@ INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', '
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Virat', 'Kohli', 'ADMIN', true, 'admin', 'vk@gmail.com', '8888888888');
+VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2b$10$mVBtIgCUA9GdsX9EBQ3OgOVo/u8z6OypSBm6EmuA9TxJ/om7eaTpq', 'vk@gmail.com', '8888888888');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '12345', 'rj@gmail.com', '9999999999');
+VALUES ('Ravindra', 'Jadeja', 'USER', true, '$2b$10$kzSj4B9t9AFwFOTVmSWgfOKP9fShU8JSo5yooglbp99/3sYZ1XJg6', 'rj@gmail.com', '9999999999');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '12345', 'ra@gmail.com', '7777777777');
+VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '$2b$10$kzSj4B9t9AFwFOTVmSWgfOKP9fShU8JSo5yooglbp99/3sYZ1XJg6', 'ra@gmail.com', '7777777777');
 -- adding a supplier correspondece address
 INSERT INTO address( user_id, address_line_one, address_line_two, city, state, country, postal_code, is_billing, is_shipping) 
 VALUES (2, '102 Sabarmati Society, Mahatma Gandhi Road', 'Near Salt Lake, Gandhi Nagar', 'Ahmedabad', 'Gujarat', 'India', '111111', true, false );

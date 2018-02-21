@@ -25,7 +25,7 @@
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-<link href="${css}/bootstrap-simplex-theme.css" rel="stylesheet">
+<link href="${css}/bootstrap-materia-theme.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
 
