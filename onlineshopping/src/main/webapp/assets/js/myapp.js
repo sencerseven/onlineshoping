@@ -23,6 +23,18 @@ $(function(){
 		break;
 		}
 	
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0){
+		console.log("tokenlar geldi");
+		$(document).ajaxSend(function(e,xhr,options){
+			xhr.setRequestHeader(header,token);
+		});
+		
+	}
+	
+	
 	// code for jquery dataTable
 	//create a dataset
 	
@@ -116,7 +128,7 @@ $(function(){
 	
 	// -----------------------------------------
 	
-	$('.switch input[type="checkbox"]').on('change',function(){
+$('.switch input[type="checkbox"]').on('change',function(){
 		
 		var checkbox = $(this);
 		var checked = checkbox.prop('checked');
@@ -307,6 +319,40 @@ $(function(){
 	
 	//------------------------
 	
+	//-----------------------	
+	// Validation Login Page
+	//----------------------
 	
+	var $loginForm = $('#loginForm');
+	
+	if($loginForm.length){
+		
+		$loginForm.validate({
+			rules:{
+				username:{
+					required: true,
+					minlength: 2
+				},
+				password:{
+					required: true
+				}
+			},
+			messages:{
+				username:{
+					required: 'Please enter username!'
+				},
+				password:{
+					required:'Please enter password'
+				}
+			},
+			errorElement:'em',
+			errorPlacement: function(error, element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+				console.log(error);
+			}
+		});
+		
+	}
 	
 });

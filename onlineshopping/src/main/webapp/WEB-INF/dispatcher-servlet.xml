@@ -14,18 +14,28 @@
    http://www.springframework.org/schema/webflow-config
    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
+
+<!-- Scan ALL component (@Controller @Service @Repository @Component) --> 
+
 <context:component-scan base-package="com.sencerseven.onlineshopping"></context:component-scan>
 <context:component-scan base-package="com.sencerseven.shoppingbackend"></context:component-scan>
+
+
+<!--  View Resolver provides view Page's suffix and prefix
+	ex: suffix -> .jsp
+ -->
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/views/" />
 	<property name="suffix" value=".jsp" />
 </bean>
 
+<!-- Spring need to multipartResolver Bean for uploading file-->
 <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 
-<!-- Loading static resource -->
+<!-- Spring needs to know the annotation so we use annotation -->
 <mvc:annotation-driven />
 
+<!-- Loading static resource -->
 <mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
 
 <!-- WEBFLOW CONFIGRATION -->

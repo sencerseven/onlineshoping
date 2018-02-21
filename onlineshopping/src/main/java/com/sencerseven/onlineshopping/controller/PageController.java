@@ -3,6 +3,7 @@ package com.sencerseven.onlineshopping.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -121,6 +122,19 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "About Us");
 		mv.addObject("userClickAbout", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = {"/login"})
+	public ModelAndView login(@RequestParam(name="error",required = false)String error) {
+		ModelAndView mv = new ModelAndView("login");
+		if(error != null) {
+			mv.addObject("message", "Invalid Username and password");
+		}
+			
+		logger.warn("Inside PageController login method - INFO");
+		
+		mv.addObject("title", "Login");
 		return mv;
 	}
 	
