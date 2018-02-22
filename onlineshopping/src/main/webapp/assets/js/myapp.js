@@ -103,7 +103,13 @@ $(function(){
 							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="fas fa-cart-plus"> </span></a>';
 							
 						}else{
-							str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
+							if(userRole == 'ADMIN'){
+								str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-success"><span class="fas fa-edit"> </span></a>';
+							}else{
+								str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
+							}
+							
+							
 						}
 						
 						

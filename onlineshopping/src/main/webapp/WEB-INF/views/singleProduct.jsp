@@ -36,16 +36,19 @@
 					<h6>Qty. Available ${product.quantity}</h6>
 				</c:otherwise>
 			</c:choose>
-			
-			<c:choose>
-				<c:when test="${product.quantity < 1}">
-					<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="fas fa-cart-plus"></span><span>Add To Cart</span></strike></a>
-				</c:when>
-				<c:otherwise>
-					<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="fas fa-cart-plus"></span><span>Add To Cart</span></a>
-				</c:otherwise>
-			</c:choose>
-			
+			<security:authorize access="hasAuthority('USER')">
+				<c:choose>
+					<c:when test="${product.quantity < 1}">
+						<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="fas fa-cart-plus"></span><span>Add To Cart</span></strike></a>
+					</c:when>
+					<c:otherwise>
+						<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="fas fa-cart-plus"></span><span>Add To Cart</span></a>
+					</c:otherwise>
+				</c:choose>
+			</security:authorize>
+			<security:authorize access="hasAuthority('ADMIN')">
+			<a href="${contextRoot}/manage/${product.id}/product" class="btn btn-success"><span class="fas fa-pencil"></span><span>Edit</span></a>
+			</security:authorize>
 			
 		<a href="${contextRoot}" class="btn btn-success"><span></span><span>Back</span></a>
 		</div>
