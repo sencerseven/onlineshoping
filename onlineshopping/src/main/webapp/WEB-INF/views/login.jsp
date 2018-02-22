@@ -61,6 +61,14 @@
 				 	</div>
 				 </div>
 			</c:if>
+			<c:if test="${not empty logout}">
+				 <div class="col-md-12 col-xs-12">
+				 	<div class="alert alert-success">
+				 		${logout}
+				 	</div>
+				 </div>
+			</c:if>
+			
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h4>Login</h4>

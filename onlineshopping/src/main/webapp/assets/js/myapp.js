@@ -98,18 +98,14 @@ $(function(){
 					mRender: function(data,type,row){
 						var str = '';
 						str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="fas fa-eye"> </span></a> &#160';
-						
-						if(row.quantity < 1 ){
-							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="fas fa-cart-plus"> </span></a>';
-							
+						if(userRole == 'ADMIN'){
+							str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-success"><span class="fas fa-edit"> </span></a>';						
 						}else{
-							if(userRole == 'ADMIN'){
-								str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-success"><span class="fas fa-edit"> </span></a>';
+							if(row.quantity < 1 ){
+								str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="fas fa-cart-plus"> </span></a>';
 							}else{
 								str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
 							}
-							
-							
 						}
 						
 						

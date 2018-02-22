@@ -49,7 +49,7 @@
 		                
 		                		<div class="dropdown-divider"></div>
 		               </security:authorize>
-		               <a class="dropdown-item" href="${contextRoot}/logout">Logout</a>
+		               <a class="dropdown-item" href="${contextRoot}/perform-logout">Logout</a>
 		               
 	              </div>
 	            </li>

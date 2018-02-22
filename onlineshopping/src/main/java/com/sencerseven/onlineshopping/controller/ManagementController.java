@@ -66,12 +66,12 @@ public class ManagementController {
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct,BindingResult result,Model model,HttpServletRequest request){
 		
-		if(mProduct.getId() == 0)
+		if(mProduct.getId() == 0) {
 			new ProductValidator().validate(mProduct, result);
-		else
+		}else {
 			if(!mProduct.getFile().getOriginalFilename().equals(""))
 				new ProductValidator().validate(mProduct, result);
-		
+		}
 		
 		if(result.hasErrors()) {
 			
