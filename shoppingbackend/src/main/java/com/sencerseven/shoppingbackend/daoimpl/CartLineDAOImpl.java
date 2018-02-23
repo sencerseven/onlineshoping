@@ -73,11 +73,20 @@ public class CartLineDAOImpl  implements CartLineDAO{
 										.setParameter("available", true).getResultList();
 	
 	}
-
+	
 	@Override
-	public CartLine getByCartAndProduct(int cardId, int productId) {
-		// TODO Auto-generated method stub
-		return null;
+	public CartLine getByCartAndProduct(int cartId,int productId) {
+		String query = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
+		
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(query, CartLine.class)
+						.setParameter("cartId", cartId)
+							.setParameter("productId", productId).getSingleResult();
+		}catch (Exception e) {
+			return null;
+		}
+		
+	
 	}
-
 }
