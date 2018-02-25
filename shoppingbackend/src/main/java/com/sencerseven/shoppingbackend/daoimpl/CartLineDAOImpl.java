@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sencerseven.shoppingbackend.dao.CartLineDAO;
+import com.sencerseven.shoppingbackend.dto.Cart;
 import com.sencerseven.shoppingbackend.dto.CartLine;
 
 @Repository("cartLineDAO")
@@ -88,5 +89,16 @@ public class CartLineDAOImpl  implements CartLineDAO{
 		}
 		
 	
+	}
+
+	@Override
+	public boolean updateCart(Cart cart) {
+		try {
+			sessionFactory.getCurrentSession().update(cart);
+			return true;
+		}catch (Exception e) {
+			
+		}
+		return false;
 	}
 }

@@ -15,6 +15,9 @@ $(function(){
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;
 		
 	default:
 		if(menu == 'Home') break;
@@ -104,7 +107,7 @@ $(function(){
 							if(row.quantity < 1 ){
 								str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="fas fa-cart-plus"> </span></a>';
 							}else{
-								str += '<a href="'+window.contextRoot+'/card/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
+								str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="fas fa-cart-plus"> </span></a>';
 							}
 						}
 						
@@ -356,5 +359,34 @@ $('.switch input[type="checkbox"]').on('change',function(){
 		});
 		
 	}
+	
+	//--------------------------
+	$("button[name=refreshCart]").click(function(){
+	var cartLineId = $(this).attr('value');
+	var countElement = $("#count_"+cartLineId);
+	var originalCount = countElement.attr('value');
+	var currentCount = countElement.val();
+	
+	if(currentCount !== originalCount){
+		if(currentCount < 1 || currentCount > 3){
+			countElement.val(originalCount);
+			bootbox.alert({
+				size: 'medium',
+				title: 'Error',
+				message:'Product count should be minimum 1 and maximum 3!'
+			});
+		}else{
+			
+			var updateUrl = window.contextRoot + "/cart/" + cartLineId + '/update?count='+currentCount;
+			window.location.href=updateUrl;
+		}
+	}
+	
+		
+		
+	});
+	
+	
+	//----------------------------
 	
 });

@@ -102,7 +102,7 @@ public class UserTestCase {
 			
 		}
 	}
-	
+	*/
 	
 	@Test
 	public void testUpdateCart() {
@@ -116,7 +116,7 @@ public class UserTestCase {
 		
 		assertEquals("Failed to update cart", true,userDAO.updateCart(cart));
 	}
-	*/
+	
 	/*
 	@Test
 	public void testAddAddress() {
@@ -175,12 +175,12 @@ public class UserTestCase {
 		assertEquals("Fialed to add address!",true, userDAO.addAdress(address));
 	}
 	*/
-	
+	/*
 	@Test
 	public void testGetAddresses() {
 		user = userDAO.getByEmail("hr@gmail.com");
 		
 		assertEquals("Fialed to add address!",2, userDAO.listShippingAddresses(user).size());
 		
-	}
+	}*/
 }

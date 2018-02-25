@@ -36,16 +36,17 @@
             </li>
             </security:authorize>
             <security:authorize access="isAuthenticated()">
-	            <li class="nav-item dropdown">
+	            <li class="nav-item dropdown" id="userCart">
 	            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">${userModel.fullName}<span class="caret"></span></a>
 	            		
 	  
 	            		<div class="dropdown-menu" aria-labelledby="download">
 	            		
 	            			<security:authorize access="hasAuthority('USER')">
-			                <a class="dropdown-item" href="${contextRoot}/cart">
+			                <a class="dropdown-item" href="${contextRoot}/cart/show">
 			                	<span class="fas fa-shopping-cart"></span>
-			                0</a>
+			                	<span class="badge">${userModel.cart.cartLines}</span>
+			               - ${userModel.cart.grandTotal} &#8378;</a>
 		                
 		                		<div class="dropdown-divider"></div>
 		               </security:authorize>
